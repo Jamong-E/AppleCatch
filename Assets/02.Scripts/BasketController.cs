@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class BasketController : MonoBehaviour
@@ -16,6 +17,14 @@ public class BasketController : MonoBehaviour
                 float z = Mathf.RoundToInt(hit.point.z);
                 transform.position = new Vector3(x, 0, z);
             }
+        }
+    }
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.name == "apple")
+        {
+            Debug.Log("apple");
+            Destroy(collision.gameObject);
         }
     }
 }
