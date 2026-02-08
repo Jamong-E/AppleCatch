@@ -12,6 +12,7 @@ public class GeneratorScript : MonoBehaviour
     float delta;
     float spawn = 1.0f;
     float speed = -0.03f;
+    float ratio = 20;
     System.Random random = new System.Random();
 
     void Update()
@@ -20,7 +21,7 @@ public class GeneratorScript : MonoBehaviour
         if (delta > spawn)
         {
             GameObject Item;
-            if (random.Next(0, 10) < 2)
+            if (random.Next(0, 100) < ratio)
             {
                 Item = Instantiate(PrefabBomb);
             }
@@ -34,5 +35,12 @@ public class GeneratorScript : MonoBehaviour
             speed -= 0.001f;
             Item.GetComponent<ItemController>().dropSpeed = speed;
         }
+    }
+    
+    public void SetParameter(float spawn, float speed, float ratio)
+    {
+        this.spawn = spawn;
+        this.speed = speed;
+        this.ratio = ratio;     // ratio 1´ç ÆøÅº 1%
     }
 }
