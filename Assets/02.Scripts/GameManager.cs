@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject generator;
-    float time;
+    float time = 30.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        this.time += Time.deltaTime;
-        if (this.time >= 30) {  }
+        this.time -= Time.deltaTime;
         /*
          * if (this.time < 0)
         {
